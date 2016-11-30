@@ -1,0 +1,7 @@
+@mixin serifs(){
+    font-family: $font5, $font3, $font6, $font7;
+}
+
+@mixin SansS(){
+    font-family: $font1, $font4, $font2;
+}

@@ -1,0 +1,577 @@
+/***********************************************
+//                NOTES
+//light blue  #C7F7FF
+//med blue    #89C0C9
+//dark blue   #3a5E63
+//light brown #C9A689
+//dark brown  #7C593C
+//light grey  #d4d4d4
+//dark grey   #222
+//
+//                DEFAULTS
+***********************************************/
+
+@import "variables";
+@import "mixins";
+@import "queries";
+
+
+
+
+*{
+    padding:0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+*:after,
+*:before{
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+}
+html{
+    font-size: 16px;
+    @include SansS;
+    line-height: 1.6;
+}
+h1, h2, h3, h4{ @include serifs;
+}
+ul{
+    list-style: none;
+}
+/***********************************************
+                SPECIAL
+***********************************************/
+
+.clearfix:after{
+    display:table;
+    clear: both;
+    content: "";
+}
+
+/***********************************************
+                LAYOUT
+***********************************************/
+.bg-header{
+    background-color: $light_blue;
+    color: $black;
+    border-bottom:1rem solid $med_blue;
+    border-top:1rem solid $dark_blue;
+    position: relative;
+}
+.bg-header:before,
+.bg-header:after{
+    content:"";
+    position:absolute;
+    bottom:-1rem;
+    width:$thirty;
+    height:1rem;
+    background-color: $dark_blue;
+}
+.bg-header:before{
+    left:0;
+}
+.bg-header:after{
+    right:0;
+}
+.bg-focal{
+    background-color: $light_brown;
+    color: $dark_brown;
+}
+.bg-content1{
+    background-color: #fff;
+    color: #222;
+}
+.bg-content2{
+    background-color: $light_blue;
+    color: #3a5E63;
+}
+.bg-footer{
+    background-color: $whiteish;
+    color: $light_grey;
+}
+header{
+    width: 400px; /* default */
+    margin: 0 auto;
+    position: relative;
+}
+header h1{
+    width: $hunnid;
+    padding: 0 2rem;
+}
+header nav{
+    width: $hunnid;
+}
+header nav>ul li{
+    width:$hunnid;
+    float: none;
+}
+section.focal{
+    width: 400px; /* default */
+    margin: 0 auto;
+}
+section.content1{
+    padding: 2rem 0;
+}
+section.content2{
+    padding:2rem 0;    
+}
+.row{
+    clear: both;
+}
+.col-2{
+    width:$fitty;
+    float:left;
+    padding-bottom: 2rem;
+    border-left:1px solid $dark_blue;
+    margin-bottom: 2rem;
+}
+footer .col-2:first-child{
+    border-left: 0;
+}
+footer{
+    padding:2rem 0;
+}
+footer p:last-child{
+}
+/***********************************************
+                NAVIGATION
+***********************************************/
+header nav{
+    padding:2rem 0;
+    clear: both;
+}
+header nav>ul>li>a{
+    display:block;
+    text-align: center;
+    text-decoration: none;
+    color: #222;    
+    font-size: 1.414rem;
+    letter-spacing: 0.25rem;
+    border:1px solid $light_grey; 
+    border-bottom: none;
+    padding:1.0rem 2rem;
+    line-height: 1;
+    background-color: $whiteish;
+}
+header nav>ul>li>a:hover{
+    font-weight: 700;
+    color:$dark_brown;
+}
+
+/***********************************************
+                CONTENT
+***********************************************/
+header h1{
+    color: $dark_brown;
+    letter-spacing: 0.1rem;
+}
+header h1 i.fa-lg{
+    display:block;
+    width: $twentyfv;
+    float:left;
+    font-size: 7rem;
+    line-height: 12.7936rem;
+    color: $light_brown;
+}
+header h1 i.fa-lg ~ span{
+    float: right;
+    width: $svntfv;
+    font-size: 3.998rem;
+    /**
+    2 lines of 3.998 * 1.6 = 12.7936
+    **/
+    padding-left: 1rem;
+    text-align: right;
+}
+.focal h2{
+    font-size: 1.999rem;
+    line-height: 1.2;
+    padding: 2rem 2rem 1rem 2rem;
+}
+.focal .author{
+    font-size: 1rem;
+    padding: 0.2rem 2rem 2rem;
+}
+.content1 h3{
+    font-size:1.999rem;
+    padding: 0.2rem 2rem 2rem;
+}
+.content1 h3 i{
+    vertical-align:middle;
+    padding-right: 2rem;
+}
+.content1 p{
+    font-size: 1.414rem;
+    padding: 0.5rem 2rem 2rem;
+}
+.content2 h3{
+    font-size: 1.999rem;
+    padding: 1rem 2rem 0.5rem;
+}
+.content2 h4{
+    font-size: 1.999rem;
+    padding: 1rem 2rem 0rem;
+}
+.content2 p{
+    font-size: 1.414rem;
+    padding: 0.5rem 2rem 1rem;
+}
+.content2 li{
+    padding: 0.5rem 2rem;
+    font-size: 1.414rem;
+}
+/***********************************************
+                FOOTER
+***********************************************/
+footer h4{
+    font-size: 1.414rem;
+    padding: 0.5rem 2rem;
+    color: $dark_brown;
+}
+footer p{
+    font-size: 1rem;
+    padding: 0.5rem 2rem;
+    color: $dark_grey;
+}
+footer .fa-circle{
+    color: $dark_grey;
+}
+footer h4[lang=de]{
+   display:block;
+}
+footer h4[lang=en],
+footer h4[lang=ar],
+footer h4[lang=ru]{
+    display:none;
+}
+
+@media all and (min-width:$media_smaller) and (max-width:$media-small) {
+    header {
+        width: $sevenhund;
+        margin: 0 auto;
+        min-height: 8rem;
+        h1 {
+            width: $hunnid;
+            color: $dark_brown;
+        }
+        &:before,
+        &:after {
+            width: $twotird;
+        }
+        h1 i.fa-lg {
+            display: inline;
+            color: $dark_brown;
+            vertical-align: baseline;
+            float: none;
+            font-size: 4rem;
+            line-height: 6.3968rem;
+        }
+    }
+    header h1 i.fa-lg ~ span {
+        float: none;
+        letter-spacing: 0.25rem;
+        font-size: 3.998rem;
+        /**
+        1 lines of 3.998 * 1.6 = 6.3968
+        **/
+        text-align: left;
+    }
+    header nav {
+        position: static;
+        clear: both;
+        width: $hunnid;
+        padding: 0;
+    }
+    header nav>ul>li {
+        width: $twenty;
+        float: left;
+    }
+    header nav>ul>li>a {
+        font-size: 1rem;
+        line-height: 2rem;
+        min-height: 6rem;
+        border: none;
+        border-left: 1px solid $light_grey;
+        padding: 1.0rem;
+        background-color: $whiteish;
+    }
+    header nav>ul>li>a:last-child {
+        border-right: 1px solid $light_grey;
+    }
+    section.focal,
+    section.content1,
+    section.content2,
+    footer {
+        width: $sevenhund;
+        margin: 0 auto;
+    }
+    .col-4 {
+        width: $fitty;
+        float: left;
+    }
+    section.content2 h4 {
+        font-size: 1.414rem;
+    }
+    section.content2 li {
+        font-size: 1.414rem;
+    }
+    footer .fa-circle {
+        color: $med_blue;
+    }
+    footer .col-2:last-child {
+        unicode-bidi: bidi-override;
+        direction: rtl;
+    }
+    footer h4[lang=ar] {
+        display: block;
+    }
+    footer h4[lang=de],
+    footer h4[lang=en],
+    footer h4[lang=ru] {
+        display: none;
+    }
+}
+
+@media all and (min-width:$media-medium) and (max-width:$media-large) {
+    header {
+        width: 900px;
+        margin: 0 auto;
+    }
+    header:before,
+    header:after {
+        width: 300px;
+    }
+    header h1 {
+        width: $hunnid;
+        color: $dark_blue;
+    }
+    header h1 i.fa-lg {
+        display: inline;
+        color: $dark_blue;
+        vertical-align: baseline;
+        float: none;
+        font-size: 4rem;
+        line-height: 6.3968rem;
+    }
+    header h1 i.fa-lg ~ span {
+        float: none;
+        letter-spacing: 0.25rem;
+        font-size: 3.998rem;
+        /**
+        1 lines of 3.998 * 1.6 = 6.3968
+        **/
+        text-align: left;
+    }
+    header nav {
+        position: static;
+        clear: both;
+        width: $hunnid;
+        padding: 0;
+    }
+    header nav>ul>li {
+        width: $twenty;
+        float: left;
+        background-color: $whiteish;
+    }
+    header nav>ul>li>a {
+        font-size: 1rem;
+        line-height: 2rem;
+        min-height: 2rem;
+        border: none;
+        border-left: 1px solid $light_grey;
+        padding: 0 1.0rem;
+        margin: 1.0rem 0;
+        background-color: $whiteish;
+    }
+    header nav>ul>li:first-child a {
+        border-left: none;
+    }
+    section.focal,
+    section.content1,
+    section.content2,
+    footer {
+        width: 900px;
+        margin: 0 auto;
+    }
+    section.focal h2 {
+        width: 600px;
+        margin: 0 auto;
+    }
+    section.focal p.author {
+        width: 600px;
+        margin: 0 auto;
+    }
+    .col-3 {
+        float: left;
+        width: $thirty;
+        margin-left: $five;
+    }
+    .col-3:first-child {
+        margin-left: 0;
+    }
+    .col-4 {
+        width: $twenty2;
+        margin-left: $four;
+        float: left;
+    }
+    .col-4:first-child {
+        margin-left: 0;
+    }
+    section.content1 h3 {
+        font-size: 1.999rem;
+        font-weight: 100;
+    }
+    section.content1 h3 .fa-2x {
+        font-size: 1.999rem;
+        padding-right: 1rem;
+    }
+    section.content2 h4 {
+        font-size: 1.414rem;
+    }
+    section.content2 li {
+        font-size: 1.414rem;
+    }
+    section.content2 p {
+        font-size: 1rem;
+        font-weight: 400;
+    }
+    footer .fa-circle {
+        color: $light_brown;
+    }
+    footer h4[lang=ru] {
+        display: block;
+    }
+    footer h4[lang=de],
+    footer h4[lang=ar],
+    footer h4[lang=en] {
+        display: none;
+    }
+}
+
+@media all and (min-width:$media-larger) {
+    header {
+        width: $media-large;
+        margin: 0 auto;
+    }
+    header:before,
+    header:after {
+        width: 450px;
+    }
+    header h1 {
+        width: $hunnid;
+        color: $dark_brown;
+    }
+    header h1 i.fa-lg {
+        display: inline;
+        color: $dark_brown;
+        vertical-align: baseline;
+        float: none;
+        font-size: 4rem;
+        line-height: 6.3968rem;
+    }
+    header h1 i.fa-lg ~ span {
+        float: none;
+        letter-spacing: 0.25rem;
+        font-size: 3.998rem;
+        /**
+        1 lines of 3.998 * 1.6 = 6.3968
+        **/
+        text-align: left;
+    }
+    header nav {
+        position: static;
+        clear: both;
+        width: $hunnid;
+        padding: 0;
+    }
+    header nav>ul>li {
+        width: $twenty;
+        float: left;
+        background-color: $whiteish;
+    }
+    header nav>ul>li>a {
+        font-size: 1.414rem;
+        line-height: 2rem;
+        min-height: 2rem;
+        border: none;
+        border-left: 1px solid $light_grey;
+        padding: 0 1.0rem;
+        margin: 1.0rem 0;
+        background-color: $whiteish;
+    }
+    header nav>ul>li:first-child a {
+        border-left: none;
+    }
+    section.focal,
+    section.content1,
+    section.content2,
+    footer {
+        width: 1400px;
+        margin: 0 auto;
+    }
+    section.focal h2 {
+        font-size: 3.998rem;
+        width: 600px;
+        margin: 0 auto;
+    }
+    section.focal p.author {
+        width: 600px;
+        margin: 0 auto;
+    }
+    .col-3 {
+        float: left;
+        width: $thirty;
+        margin-left: $five;
+    }
+    .col-3:first-child {
+        margin-left: 0;
+    }
+    .col-4 {
+        width: $twenty2;
+        margin-left: $four;
+        float: left;
+    }
+    .col-4:first-child {
+        margin-left: 0;
+    }
+    section.content1 h3 {
+        font-size: 2.827rem;
+        font-weight: 100;
+    }
+    section.content1 h3 .fa-2x {
+        font-size: 2.827rem;
+        padding-right: 1rem;
+        vertical-align: middle;
+    }
+    section.content2 h4 {
+        font-size: 1.999rem;
+    }
+    section.content2 li {
+        font-size: 1.999rem;
+    }
+    section.content2 p {
+        font-size: 1.414rem;
+        font-weight: 400;
+    }
+    footer p {
+        font-size: 1.414rem;
+        letter-spacing: 0.2rem;
+    }
+    footer p:last-child {
+        color: $light_grey;
+    }
+    footer .fa-circle {
+        color: $med_blue;
+    }
+    footer h4[lang=en] {
+        display: block;
+    }
+    footer h4[lang=de],
+    footer h4[lang=ar],
+    footer h4[lang=ru] {
+        display: none;
+    }
+}
+
+
